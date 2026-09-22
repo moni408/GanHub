@@ -656,3 +656,161 @@ body {
     transform: scale(1.05); 
     transition: 0.3s;
   }
+
+/* =========================================================
+   ADDITIONS — responsiveness + missing states
+   ========================================================= */
+
+/* Stop any stray horizontal scrollbar on the whole page */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ---------- HEADER: let it wrap instead of overflowing ---------- */
+.header {
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+/* Your search-bar uses a fixed 200px left padding to "center" it —
+   that breaks on any screen narrower/wider than the one it was tuned for.
+   This redefines it with flexible centering instead. */
+.search-bar {
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .logo h2,
+    .logo .tagline,
+    .main_logo img {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 12px;
+    }
+    .logo h2 { font-size: 16px; }
+    .main_logo img { height: 32px; }
+    .login-btn { padding: 6px 12px; font-size: 13px; }
+}
+
+/* ---------- EVENT TABS: active state + scrollable on mobile ---------- */
+.event_section > div.active {
+    background-color: #eb0707;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .event_section {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+    .event_section::-webkit-scrollbar { display: none; }
+    .event_section > div {
+        flex: 0 0 auto;
+        margin: 0 6px;
+    }
+}
+
+/* ---------- SONG ROWS: wrap + scale down instead of overflowing ---------- */
+.all_song1,
+.mt_song,
+.tb_song,
+.art_song,
+.ns_song {
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+@media (max-width: 992px) {
+    .all_song1 div img,
+    .mt_song div img,
+    .tb_song div img,
+    .art_song div img,
+    .ns_song div img {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .all_song1,
+    .mt_song,
+    .tb_song,
+    .art_song,
+    .ns_song {
+        margin-left: 15px;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+    .all_song1 div img,
+    .mt_song div img,
+    .tb_song div img,
+    .art_song div img,
+    .ns_song div img {
+        width: 160px;
+        height: 160px;
+    }
+    .all_container,
+    .td_container,
+    .mt_container,
+    .tb_container,
+    .art_container,
+    .ns_container {
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .all_song1 div img,
+    .mt_song div img,
+    .tb_song div img,
+    .art_song div img,
+    .ns_song div img {
+        width: 130px;
+        height: 130px;
+    }
+    .mt_song p,
+    .art_song p {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* ---------- SCROLL BUTTON: hide on touch screens, it's dead weight there ---------- */
+@media (max-width: 768px) {
+    .scroll {
+        display: none;
+    }
+}
+
+/* ---------- SONG DETAIL / PLAYER PAGES ---------- */
+@media (max-width: 768px) {
+    .song-details {
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+    }
+    .song-details .cover {
+        width: 250px;
+        height: 250px;
+    }
+    .song-details audio {
+        width: 90%;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .current-song {
+        border-right: none;
+        border-bottom: 1px solid #ff0000;
+    }
+}
