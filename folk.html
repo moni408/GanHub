@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inline Playlist</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    display: flex;
+    height: 90%;
+    width: 90%;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  }
+  .listName{
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 250px;
+    margin-right: 270px;
+  }
+
+  .playlist {
+    width: 50%;
+    background: #fc0e0e;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 8px;
+  }
+
+  .song-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 8px;
+    padding: 5px;
+  }
+
+  .song-row:hover {
+    background: black;
+  }
+
+  .song-row img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+
+  .song-row span {
+    font-size: 16px;
+    color: #f9f9f9;
+  }
+
+  .audio-player {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .right-panel {
+    width: 50%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-panel img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  }
+
+  audio {
+    width: 100%;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Playlist Left Side -->
+  <div class="playlist" id="playlist">
+    <div class="listName">
+        <h2>Folk Music</h2>
+    </div>
+    <div class="song-row" data-src="folk songs/song1- amr hridoy pinjirar.mp3" data-img="folk songs/song 1-amr hridoy pinjirar pakhi.jpeg">
+      <img src="folk songs/song 1-amr hridoy pinjirar pakhi.jpeg" alt="song cover">
+      <span>hridoy pinjirar pakhi</span>
+    </div>
+
+    <div class="song-row" data-src="folk songs/milon-hobe-koto-dine-moner-manush.mp3" data-img="folk songs/song 2 -milon hobe koto dine.webp">
+      <img src="folk songs/song 2 -milon hobe koto dine.webp" alt="song cover">
+      <span>Milon hobe koto dine</span>
+    </div>
+
+    <div class="song-row" data-src="folk songs/song 3-Ami Kothai Pabo Tare _ Lyrical _ Gagan Harkara.mp3" data-img="folk songs/song3- ami kothai pabo tare.jpg">
+      <img src="folk songs/song3- ami kothai pabo tare.jpg" alt="song cover">
+      <span>Ami kothai pabo tare</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song4-Tumi Robe Nirobe by Monali Thakur _ তুমি রবে নীরবে - মোনালি ঠাকুর _ Live Stage Performance.mp3" data-img="folk songs/song 4-Tumi Robe Nirobe by Monali Thakur _ তুমি রবে নীরবে - মোনালি ঠাকুর _ Live Stage Performance.jpg">
+      <img src="folk songs/song 4-Tumi Robe Nirobe by Monali Thakur _ তুমি রবে নীরবে - মোনালি ঠাকুর _ Live Stage Performance.jpg" alt="song cover">
+      <span>Tumi Robe Nirobe</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song 5-Baul Gan _ পাগলীর জীবন ধন্য হইতো পাগলারে পাইলে _ Paglir Jibon Dhonno Hoito Paglare Paile  ঝর্না বাউল.mp3" data-img="folk songs/song 5-Baul Gan _ পাগলীর জীবন ধন্য হইতো পাগলারে পাইলে _ Paglir Jibon Dhonno Hoito Paglare Paile  ঝর্না বাউল.png">
+      <img src="folk songs/song 5-Baul Gan _ পাগলীর জীবন ধন্য হইতো পাগলারে পাইলে _ Paglir Jibon Dhonno Hoito Paglare Paile  ঝর্না বাউল.png" alt="song cover">
+      <span>Paglir Jibon Dhonno Hoito</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song 6-Namaz Amar Hoilo Na Aday _ Basudeb Das Baul _ Baul Song _ Bengali Folk _ Gaan Fun.mp3" data-img="folk songs/song 6-Namaz Amar Hoilo Na Aday _ Basudeb Das Baul _ Baul Song _ Bengali Folk _ Gaan Fun.jpg">
+      <img src="folk songs/song 6-Namaz Amar Hoilo Na Aday _ Basudeb Das Baul _ Baul Song _ Bengali Folk _ Gaan Fun.jpg" alt="song cover">
+      <span>Namaz Amar Hoilo Na Aday</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song 7-Shob Loke Koy Lalon (সব লোকে কয় লালন ) _ Aritra Dashgupta _ Video Lyrical _ Aalo.mp3" data-img="folk songs/song 7-Shob Loke Koy Lalon (সব লোকে কয় লালন ) _ Aritra Dashgupta _ Video Lyrical _ Aalo.webp">
+      <img src="folk songs/song 7-Shob Loke Koy Lalon (সব লোকে কয় লালন ) _ Aritra Dashgupta _ Video Lyrical _ Aalo.webp" alt="song cover">
+      <span>Shob Loke Koy Lalon</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song 8-ও কি গাড়িয়াল ভাই। o Ke gariwal vai। folk bangla song।পল্লীগীতি গান ।polligeeti gun@Greenbangladesh1.mp3" data-img="folk songs/song 8-ও কি গাড়িয়াল ভাই। o Ke gariwal vai। folk bangla song।পল্লীগীতি গান ।polligeeti gun@Greenbangladesh1.jpg">
+      <img src="folk songs/song 8-ও কি গাড়িয়াল ভাই। o Ke gariwal vai। folk bangla song।পল্লীগীতি গান ।polligeeti gun@Greenbangladesh1.jpg" alt="song cover">
+      <span>O Ke gariwal vai</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song 9-খাঁচার ভিতর অচিন পাখি _ Khachar Bhitor Ochin Pakhi _ Kartik Das Baul _ Lalon Song _ The Bolpur Blues.mp3" data-img="folk songs/song 9-খাঁচার ভিতর অচিন পাখি _ Khachar Bhitor Ochin Pakhi _ Kartik Das Baul _ Lalon Song _ The Bolpur Blues.webp">
+      <img src="folk songs/song 9-খাঁচার ভিতর অচিন পাখি _ Khachar Bhitor Ochin Pakhi _ Kartik Das Baul _ Lalon Song _ The Bolpur Blues.webp" alt="song cover">
+      <span>Khachar Bhitor Ochin Pakhi</span>
+    </div>
+    <div class="song-row" data-src="folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.mp3" data-img="folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.jpg">
+      <img src="folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.jpg" alt="song cover">
+      <span>Maya Lagaise</span>
+    </div>
+
+    <!-- Audio player appears only when a song is clicked -->
+    <div class="audio-player" id="audioContainer">
+      <audio id="audioPlayer" controls></audio>
+    </div>
+
+  </div>
+
+  <!-- Right Panel Image -->
+  <div class="right-panel">
+    <img id="songImage" src="folk.jpg" alt="Song Image">
+  </div>
+
+</div>
+
+<script>
+  const playlist = document.querySelectorAll('.song-row');
+  const audioPlayer = document.getElementById('audioPlayer');
+  const audioContainer = document.getElementById('audioContainer');
+  const songImage = document.getElementById('songImage');
+
+  playlist.forEach(song => {
+    song.addEventListener('click', () => {
+      const src = song.getAttribute('data-src');
+      const img = song.getAttribute('data-img');
+
+      // Set audio source and play
+      audioPlayer.src = src;
+      audioPlayer.play();
+
+      // Show audio player if hidden
+      audioContainer.style.display = 'block';
+
+      // Update right panel image
+      songImage.src = img;
+    });
+  });
+</script>
+
+</body>
+</html>

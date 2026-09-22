@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Song Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body { font-family: sans-serif; background: #000; color: #fff; margin: 0; padding: 0; }
+  .container { display: flex; min-height: 100vh; }
+  .current-song { flex: 2; padding: 2rem; border-right: 1px solid #ff0000; display: flex; flex-direction: column; align-items: center; }
+  .current-song img.cover { max-width: 300px; width: 100%; border-radius: 10px; margin-bottom: 1rem; }
+  .audio-wrapper { margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem; font-size: 1.2rem; }
+  .other-songs { flex: 1; padding: 2rem; overflow-y: auto; }
+  .other-songs h3 { margin-bottom: 1rem; color: #ff0000; text-align: center; }
+  .other-songs div.song-item { margin-bottom: 1rem; padding: 0.5rem; border-bottom: 1px solid #444; cursor: pointer; display: flex; align-items: center; }
+  .other-songs div.song-item:hover { background: #111; }
+  .other-songs div.song-item img { width: 50px; height: 50px; border-radius: 5px; margin-right: 0.5rem; }
+  .song-item span { vertical-align: middle; }
+  a.back-btn { display: inline-block; margin-top: 1.5rem; padding: 0.5rem 1rem; background: #ff0000; color: #fff; text-decoration: none; border-radius: 5px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="current-song">
+    <h1 id="song-title">Song Title</h1>
+    <img id="song-cover" class="cover" src="" alt="cover">
+    <div class="song-info" id="song-info"></div>
+    <div class="audio-wrapper">
+      <audio id="audio" loop controls></audio>
+    </div>
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <div class="other-songs">
+    <h3>You can try some other songs</h3>
+    <div id="song-list"></div>
+  </div>
+</div>
+
+<script>
+  // 1️⃣ List of all songs
+  const songs = [
+    {
+      title: "Abar | Minar Rahman",
+      artist: "Minar Rahman",
+      released: "2022",
+      genre: "Pop",
+      cover: "abar.jpg",
+      src: "Abar.mp3"
+    },
+    {
+      title: "Ghum | Odd Signature",
+      artist: "Odd Signature",
+      released: "2021",
+      genre: "Cover by Sanjara Javed",
+      cover: "ghum.jpeg",
+      src: "Ghum __ Odd Signature __ Cover by Sanjara Javed.mp3"
+    },
+    {
+      title: "Aha Re | Minar Rahman",
+      artist: "Minar Rahman",
+      released: "2020",
+      genre: "Pop",
+      cover: "ahare.jpeg",
+      src: "Aha Re __ আহারে __ Minar Rahman _ Taneem Rahman Angshu _ Superhit Bangla Song _ Official Music Video.mp3"
+    },
+  {
+    title: "Mayabi",
+    artist: "Artist Name", // replace with actual artist
+    released: "2023",      // replace with actual year
+    genre: "Pop",          // replace with actual genre
+    cover: "mayabi.jpg",   // replace with actual cover image
+    src: "Mayabee (মায়াবী) - Blue Touch (Official Music Video).mp3"      // replace with actual audio file
+  },
+  {
+    title: "Jhom",
+    artist: "Minar Rahman",
+    released: "2022",
+    genre: "Pop",
+    cover: "Minar_Rahman_portrait_2017.jpg",
+    src: "MINAR RAHMAN _ JHOOM  _ Official Video _ Bangla New Song.mp3"
+  },
+  {
+    title: "Majhe Majhe Tobo",
+    artist: "Mahtim Sakib",
+    released: "2021",
+    genre: "Classical",
+    cover: "majhe_majhe.jpeg",
+    src: "MAJHEY MAJHEY TOBO - TAPOSH FEAT. MAHTIM SHAKIB _ OMZ WIND OF CHANGE [ S_06 ].mp3"
+  },
+  {
+    title: "Malo Ma",
+    artist: "Pritom Hasan | Sagor Dewan",
+    released: "2020",
+    genre: "Folk",
+    cover: "maloma.jpeg",
+    src: "Ma Lo Ma _ Coke Studio Bangla _ Season 3 _ Pritom Hasan X Sagor Dewan X Arif Dewan X Aly Hasan.mp3"
+  }
+];
+
+
+
+  // 2️⃣ Get song from query string (?song=0, ?song=1, etc.)
+  const params = new URLSearchParams(window.location.search);
+  let songIndex = parseInt(params.get("song")) || 0; 
+  // default first song
+
+  // 3️⃣ Render current song
+  const audio = document.getElementById("audio");
+  const songTitle = document.getElementById("song-title");
+  const songCover = document.getElementById("song-cover");
+  const songInfo = document.getElementById("song-info");
+
+  function renderSong(index) {
+    const song = songs[index];
+    songTitle.textContent = song.title;
+    songCover.src = song.cover;
+    songInfo.innerHTML = `🎵 Artist: ${song.artist}<br>📅 Released: ${song.released}<br>🎼 Genre: ${song.genre}`;
+    audio.src = song.src;
+    audio.play();
+  }
+
+  renderSong(songIndex);
+
+  // 4️⃣ Render other songs list
+  const songList = document.getElementById("song-list");
+  songs.forEach((song, index) => {
+    const div = document.createElement("div");
+    div.classList.add("song-item");
+    div.innerHTML = `<img src="${song.cover}" alt="${song.title}"><span>${song.title}</span>`;
+    div.addEventListener("click", () => {
+      renderSong(index);
+      window.history.pushState({}, "", `song.html?song=${index}`);
+    });
+    songList.appendChild(div);
+  });
+
+</script>
+</body>
+</html>

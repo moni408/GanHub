@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Song Page</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+  <div class="current-song">
+    <h1 id="song-title">Song Title</h1>
+    <img id="song-cover" class="cover" src="" alt="cover">
+    <div class="song-info" id="song-info"></div>
+    <div class="audio-wrapper">
+      <audio id="audio" loop controls></audio>
+    </div>
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <div class="other-songs">
+    <h3>You can try some other songs</h3>
+    <div id="song-list"></div>
+  </div>
+</div>
+
+<script>
+  // ===== SONG ARRAY RENAMED =====
+  const tdSongs = [
+    {
+      title: "Malo Ma",
+      artist: "Pritom Hasan | Sagor Dewan",
+      released: "2020",
+      genre: "Folk",
+      cover: "maloma.jpeg",
+      src: "Ma Lo Ma _ Coke Studio Bangla _ Season 3 _ Pritom Hasan X Sagor Dewan X Arif Dewan X Aly Hasan.mp3"
+    },
+    {
+      title: "Maya Lagaise",
+      artist: "Folk Music",
+      released: "2020",
+      genre: "Folk",
+      cover: "folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.jpg",
+      src: "folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.mp3"
+    },
+    {
+      title: "Fire Asho na",
+      artist: "Habib Wahid",
+      released: "2020",
+      genre: "Modren",
+      cover: "modern song/song 5-Fire Ashona _ Habib Wahid _ ফিরে আসোনা _ হাবিব ওয়াহিদ _ Lyrical Video.jpeg",
+      src: "modern song/song 5-Fire Ashona _ Habib Wahid _ ফিরে আসোনা _ হাবিব ওয়াহিদ _ Lyrical Video.mp3"
+    },
+    {
+      title: "Pritibi Ta Naki Choto Hote Hote",
+      artist: "Moheener Ganguli",
+      released: "2020",
+      genre: "Band",
+      cover: "modern song/song 8-Prithibi Ta Naki Chhoto Hote Hote.jpeg",
+      src: "modern song/song 8-Prithibi Ta Naki Chhoto Hote Hote.mp3"
+    },
+    {
+      title: "Amar Hiyar Majhe",
+      artist: "Taneem Rahman Aungsu",
+      released: "2020",
+      genre: "Rabindra sangit",
+      cover: "amar_hiyar.jpeg",
+      src: "Amar Hiyar Majhe (আমার  হিয়ার  মাঝে) _ Rabindra Sangeet _  Sanchita Roy _ Aalo.mp3"
+    },
+    {
+      title: "Jodi Bare Bare Akti Sure",
+      artist: "Kobitar Gan",
+      released: "2020",
+      genre: "Modren",
+      cover: "jodi_bare.jpeg",
+      src: "যদি বারে বারে একটি সুরে মন তোমায় কাদায় Lyrical song _ kobitar gan_‎@LOFI004#কবিতার_গান.mp3"
+    },
+    {
+      title: "Abar | Minar Rahman",
+      artist: "Minar Rahman",
+      released: "2022",
+      genre: "Pop",
+      cover: "abar.jpg",
+      src: "Abar.mp3"
+    },
+    {
+      title: "Ghum | Odd Signature",
+      artist: "Odd Signature",
+      released: "2021",
+      genre: "Cover by Sanjara Javed",
+      cover: "ghum.jpeg",
+      src: "Ghum __ Odd Signature __ Cover by Sanjara Javed.mp3"
+    },
+    {
+      title: "Aha Re | Minar Rahman",
+      artist: "Minar Rahman",
+      released: "2020",
+      genre: "Pop",
+      cover: "ahare.jpeg",
+      src: "Aha Re __ আহারে __ Minar Rahman _ Taneem Rahman Angshu _ Superhit Bangla Song _ Official Music Video.mp3"
+    }
+  ];
+
+  // ===== GET QUERY PARAM =====
+  const params = new URLSearchParams(window.location.search);
+  let songIndex = parseInt(params.get("song")) || 0; // default first song
+
+  // ===== RENDER CURRENT SONG =====
+  const audio = document.getElementById("audio");
+  const songTitle = document.getElementById("song-title");
+  const songCover = document.getElementById("song-cover");
+  const songInfo = document.getElementById("song-info");
+
+  function renderSong(index) {
+    const song = tdSongs[index];
+    songTitle.textContent = song.title;
+    songCover.src = song.cover;
+    songInfo.innerHTML = `🎵 Artist: ${song.artist}<br>📅 Released: ${song.released}<br>🎼 Genre: ${song.genre}`;
+    audio.src = song.src;
+    audio.play();
+  }
+
+  renderSong(songIndex);
+
+  // ===== RENDER OTHER SONGS LIST =====
+  const songList = document.getElementById("song-list");
+  tdSongs.forEach((song, index) => {
+    const div = document.createElement("div");
+    div.classList.add("song-item");
+    div.innerHTML = `<img src="${song.cover}" alt="${song.title}"><span>${song.title}</span>`;
+    div.addEventListener("click", () => {
+      renderSong(index);
+      window.history.pushState({}, "", `song.html?song=${index}`);
+    });
+    songList.appendChild(div);
+  });
+</script>
+</body>
+</html>

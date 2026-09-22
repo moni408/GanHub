@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GaanHub | Forget Password</title>
+  <link rel="stylesheet" href="forget-password.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white flex min-h-screen flex-col items-center pt-16 sm:justify-center sm:pt-0">
+
+  <!-- Logo / Brand -->
+  <a href="index.html" class="flex items-center gap-2 font-semibold text-lg tracking-tight">
+    <img src="logo.png" alt="GaanHub Logo" class="w-10 h-10 rounded-full border border-red-700">
+    <span class="text-red-600">GaanHub</span>
+  </a>
+
+  <!-- Forget Password Card -->
+  <div class="relative mt-12 w-full max-w-lg sm:mt-10">
+    <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-red-700 to-transparent"></div>
+    
+    <div class="mx-5 border border-red-700/30 shadow-md rounded-lg bg-black/60 backdrop-blur-sm">
+      <div class="flex flex-col p-6">
+        <h3 class="text-xl font-semibold leading-6 tracking-tighter text-red-600">Forget Password</h3>
+        <p class="mt-1.5 text-sm font-medium text-white/50">Enter your email and set a new password</p>
+      </div>
+
+      <div class="p-6 pt-0">
+        <form action="login.html" method="POST">
+          <!-- Email -->
+          <div class="group relative rounded-lg border border-red-700 focus-within:border-red-500 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-red-500/30">
+            <input type="email" name="email" placeholder="Email" required
+                   class="block w-full border-0 bg-transparent p-0 text-sm placeholder:text-red-500 focus:outline-none focus:ring-0">
+          </div>
+
+          <!-- New Password -->
+          <div class="mt-4 group relative rounded-lg border border-red-700 focus-within:border-red-500 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-red-500/30">
+            <input type="password" name="newPassword" placeholder="New Password" required minlength="6"
+                   class="block w-full border-0 bg-transparent p-0 text-sm placeholder:text-red-500 focus:outline-none focus:ring-0">
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="mt-4 group relative rounded-lg border border-red-700 focus-within:border-red-500 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-red-500/30">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required minlength="6"
+                   class="block w-full border-0 bg-transparent p-0 text-sm placeholder:text-red-500 focus:outline-none focus:ring-0">
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-6 flex items-center justify-between gap-x-2">
+            <a href="login.html" class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-red-600 h-10 px-4 py-2 hover:bg-red-600 hover:text-white transition">
+              Back to Login
+            </a>
+            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md text-sm h-10 px-4 py-2 transition">
+              Reset Password
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
+  </div>
+</body>
+</html>

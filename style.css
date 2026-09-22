@@ -1,0 +1,658 @@
+/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Londrina+Solid:wght@100;300;400;900&family=Mozilla+Headline:wght@200..700&family=Ms+Madi&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Mozilla Headline", sans-serif;
+    font-weight: 300;
+    font-style: normal;background-color: #111;
+    color: white;
+}
+
+/* HEADER STYLING */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    padding: 12px 20px;
+    border-bottom: 2px solid #b82107; /* Gaana-style red */
+}
+
+/* Menu Icon */
+.menu-icon i {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 18px;
+    color: #cc2507; /* Brand red */
+    margin-left: 20px;
+}
+
+.logo .tagline {
+    font-size: 10px;
+    color: #bbb;
+    margin-left: 20px;
+}
+
+.main_logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.main_logo img{
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+/* Search Bar */
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
+    padding-left: 200px ;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+}
+
+/* Language Icon */
+.language i {
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #cc2507;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #ff1e00;
+}
+
+
+@media (max-width: 768px) {
+    .search-bar {
+        display: none; 
+    }
+}
+
+.auth-container {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 0px 15px rgba(255, 75, 43, 0.5);
+}
+
+.auth-container h2 {
+    margin-bottom: 5px;
+}
+
+.auth-container h2 span {
+    color: #ff4b2b;
+}
+
+.auth-container p {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+}
+
+.auth-form input::placeholder {
+    color: #999;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4b2b;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-form button:hover {
+    background-color: #ff1e00;
+}
+
+.switch-text {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.switch-text a {
+    color: #ff4b2b;
+    text-decoration: none;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
+
+.language {
+    position: relative;
+    display: inline-block;
+}
+
+.language i {
+    font-size: 1.3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.language-menu {
+    display: none;
+    position: absolute;
+    top: 25px; 
+    left: 0;
+    background: black;
+    border: 1px solid #e70707;
+    border-radius: 5px;
+    min-width: 90px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+
+.language-menu div {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.language-menu div:hover {
+    background-color: rgba(196, 44, 44, 0.497);
+}
+.event_section {
+  background-color: #f8f8f8; 
+  padding: 10px 15px;
+  text-align: center; 
+}
+
+.event_section > div {
+  color: #111;
+  display: inline-block;
+  margin: 0 12px;       
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 350;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.event_section > div:hover {
+  background-color: #eb0707;
+  color: white;
+  transform: scale(1.05); 
+  
+}
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+.content img {
+  width: 100%;         
+  max-width: 300px;    
+  height: auto;       
+  margin: 10px;        
+  border-radius: 8px; 
+  object-fit: cover;   
+}
+
+
+.eve_all_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;  
+}
+
+.switch-text {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.switch-text a {
+    color: #ff4b2b;
+    text-decoration: none;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
+.all_container{
+    margin-top: 15px;
+    height: 50px;
+    margin-left:40px ;
+    
+}
+.all_container>h2:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;   /* adds underline */
+    text-decoration-style: solid;      /* style: solid, dotted, dashed, double, wavy */
+    text-decoration-color: #e70707; 
+}
+.all_song1 {
+    display: flex; /* Puts them in a row */
+    gap: 40px;
+    margin-left: 30px; 
+    margin-bottom: 100px;/* Space between images */
+}
+
+.all_song1 div img {
+    width: 300px;   
+    height: 300px;  
+    object-fit: cover; 
+    display: block; 
+    border-radius: 8px; 
+    border: 3px solid #e70707;
+}
+.scroll{
+    background-color: white;
+    color: #e70707;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%; 
+    border: 3px solid #e70707;
+    margin-top: 120px;
+}
+#scroll_icon{
+    font-size: 40px;
+}
+.scroll:hover{
+    background-color: #111;
+}
+/* Trending Section */
+.tranding_section {
+    padding: 20px 30px;
+    background-color: #111; /* dark background */
+}
+
+.td_container h2 {
+    font-size: 24px;
+    color: #ff0000; /* trending red */
+    margin-bottom: 20px;
+}
+
+.tranding_section .malo_ma,
+.tranding_section .maya_lagaise,
+.tranding_section .fire_asho_na,
+.tranding_section .prithibi_choto,
+.tranding_section .amar_hiyar,
+.tranding_section .jodi_bare {
+    display: inline-block;
+    width: 300px; /* fixed width for consistency */
+    margin-right: 20px;
+    margin-bottom: 30px;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tranding_section div img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #e70707;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tranding_section div p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.tranding_section div:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(231, 7, 7, 0.7);
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .tranding_section .malo_ma,
+    .tranding_section .maya_lagaise,
+    .tranding_section .fire_asho_na,
+    .tranding_section .prithibi_choto,
+    .tranding_section .amar_hiyar,
+    .tranding_section .jodi_bare {
+        width: 45%;
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tranding_section .malo_ma,
+    .tranding_section .maya_lagaise,
+    .tranding_section .fire_asho_na,
+    .tranding_section .prithibi_choto,
+    .tranding_section .amar_hiyar,
+    .tranding_section .jodi_bare {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+.ns_container{
+    margin-top: 15px;
+    height: 50px;
+    margin-left:40px ;
+    
+}
+.ns_container>h2:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;   /* adds underline */
+    text-decoration-style: solid;      /* style: solid, dotted, dashed, double, wavy */
+    text-decoration-color: #e70707; 
+}
+.ns_song {
+    display: flex; /* Puts them in a row */
+    gap: 40px;
+    margin-left: 30px; 
+    margin-bottom: 100px;/* Space between images */
+}
+
+.ns_song div img {
+    width: 300px;   
+    height: 300px;  
+    object-fit: cover; 
+    display: block; 
+    border-radius: 8px; 
+    border: 3px solid #e70707;
+}
+.mt_container{
+    margin-top: 15px;
+    height: 50px;
+    margin-left:40px ;
+    
+}
+.mt_container>h2:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;   /* adds underline */
+    text-decoration-style: solid;      /* style: solid, dotted, dashed, double, wavy */
+    text-decoration-color: #e70707; 
+}
+.mt_song {
+    display: flex;
+    gap: 40px;
+    margin-left: 30px;
+    margin-bottom: 100px;
+    overflow-x: auto;       /* allows horizontal scroll */
+    scroll-behavior: smooth; /* smooth animation */
+    scrollbar-width: none;  /* hide scrollbar in Firefox */
+}
+.mt_song::-webkit-scrollbar {
+    display: none; 
+}
+
+.mt_song div img {
+    width: 300px;   
+    height: 300px;  
+    object-fit: cover; 
+    display: block; 
+    border-radius: 50%; 
+    border: 4px solid #e70707;
+}
+.mt_song p{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.tb_container{
+    margin-top: 15px;
+    height: 50px;
+    margin-left:40px ;
+    
+}
+.tb_container>h2:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;   /* adds underline */
+    text-decoration-style: solid;      /* style: solid, dotted, dashed, double, wavy */
+    text-decoration-color: #e70707; 
+}
+.tb_song {
+    display: flex; /* Puts them in a row */
+    gap: 40px;
+    margin-left: 30px; 
+    margin-bottom: 100px;/* Space between images */
+}
+
+.tb_song div img {
+    width: 300px;   
+    height: 300px;  
+    object-fit: cover; 
+    display: block; 
+    border-radius: 8px; 
+    border: 3px solid #e70707;
+}
+.art_container{
+    margin-top: 15px;
+    height: 50px;
+    margin-left:40px ;
+    
+}
+.art_container>h2:hover{
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;   /* adds underline */
+    text-decoration-style: solid;      /* style: solid, dotted, dashed, double, wavy */
+    text-decoration-color: #e70707; 
+}
+.art_song {
+    display: flex; /* Puts them in a row */
+    gap: 40px;
+    margin-left: 30px; 
+    margin-bottom: 100px;/* Space between images */
+}
+.art_song p{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.art_song div img {
+    width: 300px;   
+    height: 300px;  
+    object-fit: cover; 
+    display: block; 
+    border-radius: 50%;
+    border: 3px solid #e70707;
+}
+.abar_body {
+  background: #111;
+  height: 100vh;               /* full screen height */
+  display: flex;
+  justify-content: center;     /* center horizontally */
+  align-items: center;         /* center vertically */
+  margin: 0;                   /* remove default body margin */
+}
+
+.song-details {
+  text-align: center;
+  height: 700px;
+  width: 650px;
+  color: white;
+  border-radius: 15px;
+  border: 3px solid #e70707;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-details .cover {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #e70707;
+  margin-bottom: 20px;
+}
+
+.song-details audio {
+  margin-top: 20px;
+  width: 600px;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: #e70707;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.back-btn:hover {
+  background: black;
+}
+
+  body { 
+    font-family: sans-serif; 
+    background: #000; 
+    color: #fff; 
+    margin: 0; 
+    padding: 0; 
+  }
+
+  .container { 
+    display: flex; 
+    min-height: 100vh; 
+  }
+
+  .current-song { 
+    flex: 2; 
+    padding: 2rem; 
+    border-right: 1px solid #ff0000; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .current-song img.cover { 
+    max-width: 300px; 
+    width: 100%; 
+    border-radius: 10px; 
+    margin-bottom: 1rem; 
+  }
+
+  .audio-wrapper { 
+    margin: 1rem 0; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    font-size: 1.2rem; 
+  }
+
+  .other-songs { 
+    flex: 1; 
+    padding: 2rem; 
+    overflow-x: auto; /* horizontal scroll if needed */
+  }
+
+  .other-songs h3 { 
+    margin-bottom: 1rem; 
+    color: #ff0000; 
+    text-align: center; 
+  }
+
+  /* Make song items inline */
+  .other-songs #song-list { 
+    display: flex; 
+    gap: 1rem; 
+    flex-wrap: nowrap; /* horizontal scroll, no wrap */
+  }
+
+  .other-songs div.song-item { 
+    min-width: 120px; /* width for each song item */
+    cursor: pointer; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    border-bottom: none; 
+    padding: 0; 
+  }
+
+  .other-songs div.song-item img { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 10px; 
+    margin-bottom: 0.5rem; 
+    object-fit: cover;
+  }
+
+  .song-item span { 
+    text-align: center; 
+    font-size: 0.9rem; 
+  }
+
+  a.back-btn { 
+    display: inline-block; 
+    margin-top: 1.5rem; 
+    padding: 0.5rem 1rem; 
+    background: #ff0000; 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 5px; 
+  }
+
+  /* Optional: add hover effect */
+  .other-songs div.song-item:hover { 
+    transform: scale(1.05); 
+    transition: 0.3s;
+  }

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GaanHub | Boat of Tunes</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <!-- Left: Menu Icon -->
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- Logo / Title -->
+        <div class="logo">
+            <h2>GaanHub</h2>
+            <span class="tagline">Boat of tunes</span>
+        </div>
+        <div class="main_logo">
+            <img src="logo.png" alt="">
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="search" placeholder="Search your fav music">
+        </div>
+
+        <div class="language">
+            <i class="fa-solid fa-globe" id="globe-icon"></i>
+            <div class="language-menu" id="language-menu">
+                <div data-lang="en">English</div>
+                <div data-lang="bn">বাংলা</div>
+                <div data-lang="jp">日本語</div>
+            </div>
+        </div>
+
+
+        <!-- Login Button -->
+        <!--<button class="login-btn">Login / Signup</button> -->
+        <a href="login.html" class="login-btn" id="loginBtn">Login / Signup</a>
+
+    </header>
+    <!-- Event Section Start -->
+    <div class="event_section">
+        <div class="eve_all active" data-target="all_section">All</div>
+        <div class="eve_Tsong" data-target="tranding_section">Trending Song</div>
+        <div class="eve_types" data-target="musicTypes_section">Music Types</div>
+        <div class="eve_band" data-target="TopBands_section">Top Bands</div>
+        <div class="eve_artist" data-target="artist_section">Artist</div>
+    </div>
+
+    <!-- Event Section End -->
+
+    <section class="all_section" id="all_section">
+        <div class="all_container">
+            <h2>All</h2>
+        </div>
+        <div class="all_song1">
+            <div class="abar">
+                <a href="song.html?song=0">
+                   <img src="abar.jpg" alt="Abar | Minar Rahman">
+                </a>
+                <p>Abar | Minar Rahman</p>
+            </div>
+
+            <div class="ghum">
+                <a href="song.html?song=1">
+                    <img src="ghum.jpeg" alt="Ghum | Odd Signature">
+                </a>
+                <p>Ghum | Odd Signature</p>
+            </div>
+
+            <div class="ahare">
+                <a href="song.html?song=2">
+                    <img src="ahare.jpeg" alt="Aha Re | Minar Rahman">
+                </a>
+                <p>Aha Re | Minar Rahman</p>
+            </div>
+            <div class="majhe_majhe">
+                <a href="song.html?song=5">
+                    <img src="majhe_majhe.jpeg" alt="majhe_majhe">
+                </a>
+                <p>Majhe Majhe Tobo | Mahtim Sakib</p>
+            </div>
+            <button class="scroll">
+                <i class="fa-solid fa-chevron-right" id="scroll_icon"></i>
+            </button> 
+        </div>
+    </section>
+    <div class="tranding_section" id="tranding_section">
+        <div class="td_container">
+            <h2>Tranding Song</h2>
+        </div>
+        <div class="malo_ma">
+            <a href="tdsong.html?tdsong=0">
+                <img src="maloma.jpeg" alt="Malo Ma | Pritom Hasan">
+            </a>
+            <p>Malo Ma | Pritom Hasan | Sagor Dewan</p>
+        </div>
+        <div class="maya_lagaise">
+            <a href="tdsong.html?tdsong=1">
+                <img src="folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.jpg" alt="Maya Lagaise | Folk Music">
+            </a>
+            <p>Maya Lagaise | Folk Music</p>
+        </div>
+
+        <div class="fire_asho_na">
+            <a href="tdsong.html?tdsong=2">
+                <img src="modern song/song 5-Fire Ashona _ Habib Wahid _ ফিরে আসোনা _ হাবিব ওয়াহিদ _ Lyrical Video.jpeg" alt="Fire Asho na | Habib Wahid">
+            </a>
+            <p>Fire Asho na | Habib Wahid</p>
+        </div>
+
+        <div class="prithibi_choto">
+            <a href="tdsong.html?tdsong=3">
+                <img src="modern song/song 8-Prithibi Ta Naki Chhoto Hote Hote.jpeg" alt="Pritibi Ta Naki Choto Hote Hote | Moheener Ganguli">
+            </a>
+            <p>Pritibi Ta Naki Choto Hote Hote | Moheener Ganguli</p>
+        </div>
+
+        <div class="amar_hiyar">
+            <a href="tdsong.html?tdsong=4">
+               <img src="amar_hiyar.jpeg" alt="Amar Hiyar Majhe | Taneem Rahman Aungsu">
+            </a>
+            <p>Amar Hiyar Majhe | Taneem Rahman Aungsu</p>
+        </div>
+
+        <div class="jodi_bare">
+            <a href="tdsong.html?tdsong=5">
+                <img src="jodi_bare.jpeg" alt="Jodi Bare Bare Akti Sure | Kobitar Gan">
+            </a>
+            <p>Jodi Bare Bare Akti Sure | Kobitar Gan</p>
+        </div>
+
+    </div>
+    <div class="musicTypes_section" id="musicTypes_section">
+        <div class="mt_container">
+            <h2>Music Types</h2>
+        </div>
+        <div class="mt_song">
+            <div class="folk">
+                <a href="folk.html">
+                    <img src="folk.jpg" alt="">
+                </a>
+                <p>Folk Music (লোকসংগীত)<p>
+            </div>
+            <div class="robi">
+                <a href="rabindra.html">
+                    <img src="Rabindra.jpg" alt="">
+                </a>
+                <P>Rabindra Sangeet (রবীন্দ্রসংগীত)</P>
+            </div>
+            <div class="najrul">
+                <a href="najrul.html">
+                    <img src="najrul.jpg" alt="">
+                </a>
+            <p>Nazrul Geeti (নজরুলগীতি) </p>
+            </div>
+            <div class="gojol">
+                <a href="classical.html">
+                    <img src="gojol.jpg" alt="">
+                </a>
+                <p>Classical Music (শাস্ত্রীয় সংগীত)</p>
+            </div>
+            <div class="Modern">
+                <a href="modren.html">
+                    <img src="modren.jpeg" alt="">
+                </a>
+                <p>Modern Bangla Songs (আধুনিক গান)</p>
+            </div>
+            <div class="rock">
+                <a href="rock.html">
+                    <img src="rock.jpeg" alt="">
+                </a>
+                <p>Band & Rock Music</p>
+            </div>
+
+            <button class="scroll">
+                <i class="fa-solid fa-chevron-right" id="scroll_icon"></i>
+            </button> 
+        </div>
+    </div>
+    <div class="TopBands_section" id="TopBands_section">
+        <div class="tb_container">
+            <h2>Top Bands</h2>
+        </div>
+        <div class="tb_song">
+            <div class="miles">
+                <a href="Band(Miles)/miles.html">
+                    <img src="Band(Miles)/santi_chai.jpg" alt="">
+                </a>
+                <p>Miles | Happy Akhand | Lucky Akhand<p>
+            </div>
+            <div class="miles">
+                <a href="nagarBaul.html">
+                    <img src="Band(nagarBaul)/Nagar_Baul_Band_at_Dhaka_Retro_08.jpg" alt="">
+                </a>
+                <p>Nagar Baul (James)<p>
+            </div>
+            <div class="miles">
+                <a href="lrb.html">
+                    <img src="Band(lrb)/Love_Runs_Blind(LRB).jpg" alt="">
+                </a>
+                <p>Love Runs Blind (LRB)<p>
+            </div>
+            <div class="miles">
+                <a href="warfaze.html">
+                    <img src="Band(warfaz)/Warfaze_2023_Lineup.jpg" alt="">
+                </a>
+                <p>Warfaze<p>
+            </div>
+            <div class="miles">
+                <a href="shironamhin.html">
+                    <img src="Band(shironamhin)/shironamhin.jpeg" alt="">
+                </a>
+                <p>Shironamhin<p>
+            </div>
+            <div class="miles">
+                <a href="Nemesis.html">
+                    <img src="Band(nemesis)/maxresdefault.jpg" alt="">
+                </a>
+                <p>Nemesis<p>
+            </div>
+        </div>
+    </div>
+    <div class="artist_section" id="artist_section">
+        <div class="art_container">
+            <h2>Artist</h2>
+        </div>
+        <div class="art_song">
+            <div class="a1">
+                <a href="artist1.html">
+                   <img src="arnob.png" alt="">
+                </a>
+                <p>Shayan Chowdhury Arnob<p>
+            </div>
+            <div><a href="artist2.html">
+                <img src="Habib_Wahid_in_2022.jpg" alt="">
+            </a>
+                <P>Habib Wahid</P>
+            </div>
+            <div>
+                <a href="artist3.html">
+                   <img src="Minar_Rahman_portrait_2017.jpg" alt="">
+                </a>
+                <p>Minar Rahman</p>
+            </div>
+            <div ><a href="artist4.html">
+                <img src="james.jpg" alt="">
+            </a>
+                <p>James (Nagar Baul)</p>
+            </div>
+            <div><a href="artist5.html">
+                <img src="Tahsan.jpg" alt="">
+            </a>
+                <p>Tahsan Rahman Khan</p>
+            </div>
+            <div ><a href="artist6.html">
+                <img src="Bappa.jpg" alt="">
+            </a>
+                <p>Bappa Mazumder</p>
+            </div>
+            <div ><a href="artist7.html">
+                <img src="Fuad.jpg" alt="">
+            </a>
+                <p>Fuad al Muqtadir</p>
+            </div>
+            <button class="scroll">
+                <i class="fa-solid fa-chevron-right" id="scroll_icon"></i>
+            </button> 
+        </div>
+    </div>
+  
+
+    <script src="script.js"></script>
+</body>
+</html>

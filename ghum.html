@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abar | Minar Rahman</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .current-song {
+      flex: 2;
+      padding: 2rem;
+      border-right: 1px solid #ff0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .current-song img.cover {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .audio-wrapper {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1rem;
+    }
+    .song-info p {
+      line-height: 1.5rem;
+    }
+    .other-songs {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .other-songs h3 {
+      margin-bottom: 1rem;
+      color: #ff0000;
+      text-align: center;
+    }
+    .other-songs div.song-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-bottom: 1px solid #444;
+      cursor: pointer;
+    }
+    .other-songs div.song-item:hover {
+      background: #111;
+    }
+    .other-songs div.song-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      margin-right: 0.5rem;
+    }
+    .song-item span {
+      vertical-align: middle;
+    }
+    a.back-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.5rem 1rem;
+      background: #ff0000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Current Song -->
+  <div class="current-song">
+    <h1 id="current-title"> Ghum | Odd Signature</h1>
+    <img src="ghum.jpeg" alt="Ghum | Odd Signature" class="cover" id="current-cover">
+    <div class="song-info">
+      <p>🎵 Artist: Minar Rahman</p>
+      <p>📅 Released: 2022</p>
+      <p>🎼 Genre: Pop</p>
+    </div>
+    <div class="audio-wrapper">
+      <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+      <audio id="audio" src="Ghum __ Odd Signature __ Cover by Sanjara Javed.mp3" loop controls></audio>
+    </div>
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  </div>
+
+  <!-- Other Songs -->
+  <div class="other-songs">
+    <h3>You can try some other songs</h3>
+    <div class="song-item" data-src="Abar.mp3" data-cover="abar.jpg" data-title="Abar | Minar Rahman">
+      <img src="abar.jpg" alt="Ghum"><span>Abar | Minar Rahman</span>
+    </div>
+    <div class="song-item" data-src="Aha Re __ আহারে __ Minar Rahman _ Taneem Rahman Angshu _ Superhit Bangla Song _ Official Music Video.mp3" data-cover="ahare.jpeg" data-title="Aha Re | Minar Rahman">
+      <img src="ahare.jpeg" alt="Aha Re"><span>Aha Re | Minar Rahman</span>
+    </div>
+    <div class="song-item" data-src="Karone Okarone _ Minar Rahman _ Official Music Video _ Eagle Music.mp3" data-cover="karone_okarone.jpeg" data-title="Karone Okarone | Minar Rahman">
+      <img src="karone_okarone.jpeg" alt="Karone"><span>Karone Okarone</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const audio = document.getElementById("audio");
+  const volumeIcon = document.getElementById("volume-icon");
+  const currentTitle = document.getElementById("current-title");
+  const currentCover = document.getElementById("current-cover");
+
+  // Toggle play/pause with volume icon
+  volumeIcon.addEventListener("click", () => {
+    if(audio.paused){
+      audio.play();
+      volumeIcon.classList.replace("fa-volume-high","fa-volume-xmark");
+    } else {
+      audio.pause();
+      volumeIcon.classList.replace("fa-volume-xmark","fa-volume-high");
+    }
+  });
+
+  // Switch songs when clicking on other songs
+  document.querySelectorAll(".song-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const src = item.getAttribute("data-src");
+      const cover = item.getAttribute("data-cover");
+      const title = item.getAttribute("data-title");
+
+      audio.src = src;
+      audio.play();
+      currentTitle.textContent = title;
+      currentCover.src = cover;
+      // Reset volume icon
+      if(audio.paused){
+        volumeIcon.classList.replace("fa-volume-xmark","fa-volume-high");
+      } else {
+        volumeIcon.classList.replace("fa-volume-high","fa-volume-xmark");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
