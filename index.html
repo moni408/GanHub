@@ -1,285 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GaanHub | Boat of Tunes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GaanHub | Boat of Tunes</title>
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- HEADER SECTION -->
-    <header class="header">
-        <!-- Left: Menu Icon -->
-        <div class="menu-icon">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- HEADER -->
+<header class="header" id="siteHeader">
+    <div class="header-row">
+        <button class="menu-icon" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
             <i class="fa-solid fa-bars"></i>
-        </div>
+        </button>
 
-        <!-- Logo / Title -->
-        <div class="logo">
-            <h2>GaanHub</h2>
-            <span class="tagline">Boat of tunes</span>
-        </div>
-        <div class="main_logo">
-            <img src="logo.png" alt="">
-        </div>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="" class="logo-mark">
+            <span class="logo-text">
+                <span class="logo-title">GaanHub</span>
+                <span class="tagline">Boat of tunes</span>
+            </span>
+        </a>
 
-        <!-- Search Bar -->
         <div class="search-bar">
-            <input type="search" placeholder="Search your fav music">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="search" placeholder="Search your fav music" aria-label="Search songs, artists, bands">
         </div>
 
-        <div class="language">
-            <i class="fa-solid fa-globe" id="globe-icon"></i>
-            <div class="language-menu" id="language-menu">
-                <div data-lang="en">English</div>
-                <div data-lang="bn">বাংলা</div>
-                <div data-lang="jp">日本語</div>
+        <div class="header-actions">
+            <div class="language" id="languageWrap">
+                <button class="lang-btn" id="globeIcon" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="lang-current">EN</span>
+                </button>
+                <div class="language-menu" id="languageMenu" role="menu">
+                    <button role="menuitem" data-lang="en">English</button>
+                    <button role="menuitem" data-lang="bn">বাংলা</button>
+                    <button role="menuitem" data-lang="jp">日本語</button>
+                </div>
             </div>
+            <a href="login.html" class="login-btn" id="loginBtn">Login / Signup</a>
         </div>
-
-
-        <!-- Login Button -->
-        <!--<button class="login-btn">Login / Signup</button> -->
-        <a href="login.html" class="login-btn" id="loginBtn">Login / Signup</a>
-
-    </header>
-    <!-- Event Section Start -->
-    <div class="event_section">
-        <div class="eve_all active" data-target="all_section">All</div>
-        <div class="eve_Tsong" data-target="tranding_section">Trending Song</div>
-        <div class="eve_types" data-target="musicTypes_section">Music Types</div>
-        <div class="eve_band" data-target="TopBands_section">Top Bands</div>
-        <div class="eve_artist" data-target="artist_section">Artist</div>
     </div>
 
-    <!-- Event Section End -->
+    <!-- Collapsible panel for small screens: search + login -->
+    <div class="mobile-panel" id="mobilePanel">
+        <div class="search-bar mobile">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="search" placeholder="Search your fav music" aria-label="Search songs, artists, bands">
+        </div>
+        <a href="login.html" class="login-btn block">Login / Signup</a>
+    </div>
+</header>
 
-    <section class="all_section" id="all_section">
-        <div class="all_container">
+<!-- EVENT / SECTION TABS -->
+<nav class="event_section" id="eventSection" aria-label="Browse categories">
+    <button class="event-tab active" data-target="all_section" role="tab" aria-selected="true">All</button>
+    <button class="event-tab" data-target="tranding_section" role="tab" aria-selected="false">Trending Songs</button>
+    <button class="event-tab" data-target="musicTypes_section" role="tab" aria-selected="false">Music Types</button>
+    <button class="event-tab" data-target="TopBands_section" role="tab" aria-selected="false">Top Bands</button>
+    <button class="event-tab" data-target="artist_section" role="tab" aria-selected="false">Artist</button>
+</nav>
+
+<main id="main-content">
+
+    <!-- ALL -->
+    <section class="panel all_section" id="all_section">
+        <div class="panel-head">
             <h2>All</h2>
         </div>
-        <div class="all_song1">
-            <div class="abar">
-                <a href="song.html?song=0">
-                   <img src="abar.jpg" alt="Abar | Minar Rahman">
+        <div class="shelf">
+            <button class="shelf-nav prev" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="shelf-track">
+                <a class="card" href="song.html?song=0">
+                    <span class="card-art"><img src="abar.jpg" alt="Abar | Minar Rahman" loading="lazy"></span>
+                    <span class="card-caption">Abar | Minar Rahman</span>
                 </a>
-                <p>Abar | Minar Rahman</p>
-            </div>
-
-            <div class="ghum">
-                <a href="song.html?song=1">
-                    <img src="ghum.jpeg" alt="Ghum | Odd Signature">
+                <a class="card" href="song.html?song=1">
+                    <span class="card-art"><img src="ghum.jpeg" alt="Ghum | Odd Signature" loading="lazy"></span>
+                    <span class="card-caption">Ghum | Odd Signature</span>
                 </a>
-                <p>Ghum | Odd Signature</p>
-            </div>
-
-            <div class="ahare">
-                <a href="song.html?song=2">
-                    <img src="ahare.jpeg" alt="Aha Re | Minar Rahman">
+                <a class="card" href="song.html?song=2">
+                    <span class="card-art"><img src="ahare.jpeg" alt="Aha Re | Minar Rahman" loading="lazy"></span>
+                    <span class="card-caption">Aha Re | Minar Rahman</span>
                 </a>
-                <p>Aha Re | Minar Rahman</p>
-            </div>
-            <div class="majhe_majhe">
-                <a href="song.html?song=5">
-                    <img src="majhe_majhe.jpeg" alt="majhe_majhe">
+                <a class="card" href="song.html?song=5">
+                    <span class="card-art"><img src="majhe_majhe.jpeg" alt="Majhe Majhe Tobo | Mahtim Sakib" loading="lazy"></span>
+                    <span class="card-caption">Majhe Majhe Tobo | Mahtim Sakib</span>
                 </a>
-                <p>Majhe Majhe Tobo | Mahtim Sakib</p>
             </div>
-            <button class="scroll">
-                <i class="fa-solid fa-chevron-right" id="scroll_icon"></i>
-            </button> 
+            <button class="shelf-nav next" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
-    <div class="tranding_section" id="tranding_section">
-        <div class="td_container">
-            <h2>Tranding Song</h2>
-        </div>
-        <div class="malo_ma">
-            <a href="tdsong.html?tdsong=0">
-                <img src="maloma.jpeg" alt="Malo Ma | Pritom Hasan">
-            </a>
-            <p>Malo Ma | Pritom Hasan | Sagor Dewan</p>
-        </div>
-        <div class="maya_lagaise">
-            <a href="tdsong.html?tdsong=1">
-                <img src="folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.jpg" alt="Maya Lagaise | Folk Music">
-            </a>
-            <p>Maya Lagaise | Folk Music</p>
-        </div>
 
-        <div class="fire_asho_na">
-            <a href="tdsong.html?tdsong=2">
-                <img src="modern song/song 5-Fire Ashona _ Habib Wahid _ ফিরে আসোনা _ হাবিব ওয়াহিদ _ Lyrical Video.jpeg" alt="Fire Asho na | Habib Wahid">
-            </a>
-            <p>Fire Asho na | Habib Wahid</p>
+    <!-- TRENDING -->
+    <section class="panel tranding_section" id="tranding_section" hidden>
+        <div class="panel-head">
+            <h2>Trending Song</h2>
         </div>
-
-        <div class="prithibi_choto">
-            <a href="tdsong.html?tdsong=3">
-                <img src="modern song/song 8-Prithibi Ta Naki Chhoto Hote Hote.jpeg" alt="Pritibi Ta Naki Choto Hote Hote | Moheener Ganguli">
-            </a>
-            <p>Pritibi Ta Naki Choto Hote Hote | Moheener Ganguli</p>
+        <div class="shelf">
+            <button class="shelf-nav prev" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="shelf-track">
+                <a class="card" href="tdsong.html?tdsong=0">
+                    <span class="card-art"><img src="maloma.jpeg" alt="Malo Ma | Pritom Hasan" loading="lazy"></span>
+                    <span class="card-caption">Malo Ma | Pritom Hasan | Sagor Dewan</span>
+                </a>
+                <a class="card" href="tdsong.html?tdsong=1">
+                    <span class="card-art"><img src="folk songs/song 10-বন্ধে মায়া লাগাইছে _ Maya Lagaise _ Bangla Folk Song _ Studio Cover.jpg" alt="Maya Lagaise | Folk Music" loading="lazy"></span>
+                    <span class="card-caption">Maya Lagaise | Folk Music</span>
+                </a>
+                <a class="card" href="tdsong.html?tdsong=2">
+                    <span class="card-art"><img src="modern song/song 5-Fire Ashona _ Habib Wahid _ ফিরে আসোনা _ হাবিব ওয়াহিদ _ Lyrical Video.jpeg" alt="Fire Asho na | Habib Wahid" loading="lazy"></span>
+                    <span class="card-caption">Fire Asho na | Habib Wahid</span>
+                </a>
+                <a class="card" href="tdsong.html?tdsong=3">
+                    <span class="card-art"><img src="modern song/song 8-Prithibi Ta Naki Chhoto Hote Hote.jpeg" alt="Pritibi Ta Naki Choto Hote Hote | Moheener Ganguli" loading="lazy"></span>
+                    <span class="card-caption">Pritibi Ta Naki Choto Hote Hote | Moheener Ganguli</span>
+                </a>
+                <a class="card" href="tdsong.html?tdsong=4">
+                    <span class="card-art"><img src="amar_hiyar.jpeg" alt="Amar Hiyar Majhe | Taneem Rahman Aungsu" loading="lazy"></span>
+                    <span class="card-caption">Amar Hiyar Majhe | Taneem Rahman Aungsu</span>
+                </a>
+                <a class="card" href="tdsong.html?tdsong=5">
+                    <span class="card-art"><img src="jodi_bare.jpeg" alt="Jodi Bare Bare Akti Sure | Kobitar Gan" loading="lazy"></span>
+                    <span class="card-caption">Jodi Bare Bare Akti Sure | Kobitar Gan</span>
+                </a>
+            </div>
+            <button class="shelf-nav next" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
+    </section>
 
-        <div class="amar_hiyar">
-            <a href="tdsong.html?tdsong=4">
-               <img src="amar_hiyar.jpeg" alt="Amar Hiyar Majhe | Taneem Rahman Aungsu">
-            </a>
-            <p>Amar Hiyar Majhe | Taneem Rahman Aungsu</p>
-        </div>
-
-        <div class="jodi_bare">
-            <a href="tdsong.html?tdsong=5">
-                <img src="jodi_bare.jpeg" alt="Jodi Bare Bare Akti Sure | Kobitar Gan">
-            </a>
-            <p>Jodi Bare Bare Akti Sure | Kobitar Gan</p>
-        </div>
-
-    </div>
-    <div class="musicTypes_section" id="musicTypes_section">
-        <div class="mt_container">
+    <!-- MUSIC TYPES -->
+    <section class="panel musicTypes_section" id="musicTypes_section" hidden>
+        <div class="panel-head">
             <h2>Music Types</h2>
         </div>
-        <div class="mt_song">
-            <div class="folk">
-                <a href="folk.html">
-                    <img src="folk.jpg" alt="">
+        <div class="shelf">
+            <button class="shelf-nav prev" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="shelf-track">
+                <a class="card" href="folk.html">
+                    <span class="card-art"><img src="folk.jpg" alt="Folk Music" loading="lazy"></span>
+                    <span class="card-caption">Folk Music (লোকসংগীত)</span>
                 </a>
-                <p>Folk Music (লোকসংগীত)<p>
-            </div>
-            <div class="robi">
-                <a href="rabindra.html">
-                    <img src="Rabindra.jpg" alt="">
+                <a class="card" href="rabindra.html">
+                    <span class="card-art"><img src="Rabindra.jpg" alt="Rabindra Sangeet" loading="lazy"></span>
+                    <span class="card-caption">Rabindra Sangeet (রবীন্দ্রসংগীত)</span>
                 </a>
-                <P>Rabindra Sangeet (রবীন্দ্রসংগীত)</P>
-            </div>
-            <div class="najrul">
-                <a href="najrul.html">
-                    <img src="najrul.jpg" alt="">
+                <a class="card" href="najrul.html">
+                    <span class="card-art"><img src="najrul.jpg" alt="Nazrul Geeti" loading="lazy"></span>
+                    <span class="card-caption">Nazrul Geeti (নজরুলগীতি)</span>
                 </a>
-            <p>Nazrul Geeti (নজরুলগীতি) </p>
-            </div>
-            <div class="gojol">
-                <a href="classical.html">
-                    <img src="gojol.jpg" alt="">
+                <a class="card" href="classical.html">
+                    <span class="card-art"><img src="gojol.jpg" alt="Classical Music" loading="lazy"></span>
+                    <span class="card-caption">Classical Music (শাস্ত্রীয় সংগীত)</span>
                 </a>
-                <p>Classical Music (শাস্ত্রীয় সংগীত)</p>
-            </div>
-            <div class="Modern">
-                <a href="modren.html">
-                    <img src="modren.jpeg" alt="">
+                <a class="card" href="modren.html">
+                    <span class="card-art"><img src="modren.jpeg" alt="Modern Bangla Songs" loading="lazy"></span>
+                    <span class="card-caption">Modern Bangla Songs (আধুনিক গান)</span>
                 </a>
-                <p>Modern Bangla Songs (আধুনিক গান)</p>
-            </div>
-            <div class="rock">
-                <a href="rock.html">
-                    <img src="rock.jpeg" alt="">
+                <a class="card" href="rock.html">
+                    <span class="card-art"><img src="rock.jpeg" alt="Band and Rock Music" loading="lazy"></span>
+                    <span class="card-caption">Band &amp; Rock Music</span>
                 </a>
-                <p>Band & Rock Music</p>
             </div>
-
-            <button class="scroll">
-                <i class="fa-solid fa-chevron-right" id="scroll_icon"></i>
-            </button> 
+            <button class="shelf-nav next" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
-    </div>
-    <div class="TopBands_section" id="TopBands_section">
-        <div class="tb_container">
+    </section>
+
+    <!-- TOP BANDS -->
+    <section class="panel TopBands_section" id="TopBands_section" hidden>
+        <div class="panel-head">
             <h2>Top Bands</h2>
         </div>
-        <div class="tb_song">
-            <div class="miles">
-                <a href="Band(Miles)/miles.html">
-                    <img src="Band(Miles)/santi_chai.jpg" alt="">
+        <div class="shelf">
+            <button class="shelf-nav prev" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="shelf-track">
+                <a class="card" href="Band(Miles)/miles.html">
+                    <span class="card-art"><img src="Band(Miles)/santi_chai.jpg" alt="Miles" loading="lazy"></span>
+                    <span class="card-caption">Miles | Happy Akhand | Lucky Akhand</span>
                 </a>
-                <p>Miles | Happy Akhand | Lucky Akhand<p>
-            </div>
-            <div class="miles">
-                <a href="nagarBaul.html">
-                    <img src="Band(nagarBaul)/Nagar_Baul_Band_at_Dhaka_Retro_08.jpg" alt="">
+                <a class="card" href="nagarBaul.html">
+                    <span class="card-art"><img src="Band(nagarBaul)/Nagar_Baul_Band_at_Dhaka_Retro_08.jpg" alt="Nagar Baul" loading="lazy"></span>
+                    <span class="card-caption">Nagar Baul (James)</span>
                 </a>
-                <p>Nagar Baul (James)<p>
-            </div>
-            <div class="miles">
-                <a href="lrb.html">
-                    <img src="Band(lrb)/Love_Runs_Blind(LRB).jpg" alt="">
+                <a class="card" href="lrb.html">
+                    <span class="card-art"><img src="Band(lrb)/Love_Runs_Blind(LRB).jpg" alt="Love Runs Blind" loading="lazy"></span>
+                    <span class="card-caption">Love Runs Blind (LRB)</span>
                 </a>
-                <p>Love Runs Blind (LRB)<p>
-            </div>
-            <div class="miles">
-                <a href="warfaze.html">
-                    <img src="Band(warfaz)/Warfaze_2023_Lineup.jpg" alt="">
+                <a class="card" href="warfaze.html">
+                    <span class="card-art"><img src="Band(warfaz)/Warfaze_2023_Lineup.jpg" alt="Warfaze" loading="lazy"></span>
+                    <span class="card-caption">Warfaze</span>
                 </a>
-                <p>Warfaze<p>
-            </div>
-            <div class="miles">
-                <a href="shironamhin.html">
-                    <img src="Band(shironamhin)/shironamhin.jpeg" alt="">
+                <a class="card" href="shironamhin.html">
+                    <span class="card-art"><img src="Band(shironamhin)/shironamhin.jpeg" alt="Shironamhin" loading="lazy"></span>
+                    <span class="card-caption">Shironamhin</span>
                 </a>
-                <p>Shironamhin<p>
-            </div>
-            <div class="miles">
-                <a href="Nemesis.html">
-                    <img src="Band(nemesis)/maxresdefault.jpg" alt="">
+                <a class="card" href="Nemesis.html">
+                    <span class="card-art"><img src="Band(nemesis)/maxresdefault.jpg" alt="Nemesis" loading="lazy"></span>
+                    <span class="card-caption">Nemesis</span>
                 </a>
-                <p>Nemesis<p>
             </div>
+            <button class="shelf-nav next" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
-    </div>
-    <div class="artist_section" id="artist_section">
-        <div class="art_container">
+    </section>
+
+    <!-- ARTIST -->
+    <section class="panel artist_section" id="artist_section" hidden>
+        <div class="panel-head">
             <h2>Artist</h2>
         </div>
-        <div class="art_song">
-            <div class="a1">
-                <a href="artist1.html">
-                   <img src="arnob.png" alt="">
+        <div class="shelf">
+            <button class="shelf-nav prev" aria-label="Scroll left"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="shelf-track">
+                <a class="card round" href="artist1.html">
+                    <span class="card-art"><img src="arnob.png" alt="Shayan Chowdhury Arnob" loading="lazy"></span>
+                    <span class="card-caption">Shayan Chowdhury Arnob</span>
                 </a>
-                <p>Shayan Chowdhury Arnob<p>
-            </div>
-            <div><a href="artist2.html">
-                <img src="Habib_Wahid_in_2022.jpg" alt="">
-            </a>
-                <P>Habib Wahid</P>
-            </div>
-            <div>
-                <a href="artist3.html">
-                   <img src="Minar_Rahman_portrait_2017.jpg" alt="">
+                <a class="card round" href="artist2.html">
+                    <span class="card-art"><img src="Habib_Wahid_in_2022.jpg" alt="Habib Wahid" loading="lazy"></span>
+                    <span class="card-caption">Habib Wahid</span>
                 </a>
-                <p>Minar Rahman</p>
+                <a class="card round" href="artist3.html">
+                    <span class="card-art"><img src="Minar_Rahman_portrait_2017.jpg" alt="Minar Rahman" loading="lazy"></span>
+                    <span class="card-caption">Minar Rahman</span>
+                </a>
+                <a class="card round" href="artist4.html">
+                    <span class="card-art"><img src="james.jpg" alt="James (Nagar Baul)" loading="lazy"></span>
+                    <span class="card-caption">James (Nagar Baul)</span>
+                </a>
+                <a class="card round" href="artist5.html">
+                    <span class="card-art"><img src="Tahsan.jpg" alt="Tahsan Rahman Khan" loading="lazy"></span>
+                    <span class="card-caption">Tahsan Rahman Khan</span>
+                </a>
+                <a class="card round" href="artist6.html">
+                    <span class="card-art"><img src="Bappa.jpg" alt="Bappa Mazumder" loading="lazy"></span>
+                    <span class="card-caption">Bappa Mazumder</span>
+                </a>
+                <a class="card round" href="artist7.html">
+                    <span class="card-art"><img src="Fuad.jpg" alt="Fuad al Muqtadir" loading="lazy"></span>
+                    <span class="card-caption">Fuad al Muqtadir</span>
+                </a>
             </div>
-            <div ><a href="artist4.html">
-                <img src="james.jpg" alt="">
-            </a>
-                <p>James (Nagar Baul)</p>
-            </div>
-            <div><a href="artist5.html">
-                <img src="Tahsan.jpg" alt="">
-            </a>
-                <p>Tahsan Rahman Khan</p>
-            </div>
-            <div ><a href="artist6.html">
-                <img src="Bappa.jpg" alt="">
-            </a>
-                <p>Bappa Mazumder</p>
-            </div>
-            <div ><a href="artist7.html">
-                <img src="Fuad.jpg" alt="">
-            </a>
-                <p>Fuad al Muqtadir</p>
-            </div>
-            <button class="scroll">
-                <i class="fa-solid fa-chevron-right" id="scroll_icon"></i>
-            </button> 
+            <button class="shelf-nav next" aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
-    </div>
-  
+    </section>
 
-    <script src="script.js"></script>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; <span id="year"></span> GaanHub — a small boat carrying Bangla tunes.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
